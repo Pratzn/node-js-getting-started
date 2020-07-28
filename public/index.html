@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="semantic.min.js"></script>
+
+
+</head>
+<body class="ui segment">
+
+    <div id="loader" class="ui active dimmer">
+        <div class="ui indeterminate text loader">Preparing Files</div>
+    </div>
+   <button   class="fluid ui toggle button active" onclick="toggle(event)">Click</button>
+
+
+
+<script>
+    setTimeout(()=>{
+
+        $('#loader').removeClass('active');
+
+    },5000);
+    setInterval(()=>{
+
+        fetch('https://wcnudklin.herokuapp.com/status')
+            .then(response => response.json())
+            .then(data => refresh(data));
+    },1000);
+
+    function toggle(e){
+
+        e.preventDefault();
+        fetch('https://wcnudklin.herokuapp.com/toggle')
+            .then(response => response.json())
+            .then(data => refresh(data));
+
+    }
+
+    function refresh(data){
+        if(data.state==='off'){
+            $('button').removeClass("active");
+        }else{
+            $('button').addClass("active");
+        }
+    }
+
+
+
+</script>
+</body>
+</html>
