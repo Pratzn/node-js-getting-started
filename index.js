@@ -2,9 +2,14 @@
 const PORT = process.env.PORT || 5000;
 const express = require('express');
 const ewelink = require('ewelink-api');
-var cors = require('cors');
+const serveStatic = require('serve-static');
+const cors = require('cors');
 const app = express();
 app.use(cors());
+
+
+app.use(serveStatic(path.join(__dirname, 'public')));
+
 const connection = new ewelink({
     email: 'prat.nud@icloud.com',
     password: 'apm12ev8',
