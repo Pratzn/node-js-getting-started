@@ -4,6 +4,7 @@ const express = require('express');
 const ewelink = require('ewelink-api');
 const serveStatic = require('serve-static');
 const cors = require('cors');
+const path = require('path');
 const app = express();
 app.use(cors());
 
