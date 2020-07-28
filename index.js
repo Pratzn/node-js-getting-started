@@ -1,7 +1,8 @@
-const express = require('express')
-const PORT = process.env.PORT || 5000
+
+const PORT = process.env.PORT || 5000;
+const express = require('express');
 const ewelink = require('ewelink-api');
-const app = express()
+const app = express();
 const connection = new ewelink({
     email: 'prat.nud@icloud.com',
     password: 'apm12ev8',
@@ -25,6 +26,5 @@ app.get('/toggle', (req, res) => {
 
 })
 
-app.listen(PORT, () => {
-    console.log('Start server at port '+PORT)
+app.listen(PORT)
 })
