@@ -26,5 +26,5 @@ app.get('/toggle', (req, res) => {
 
 })
 
-app.listen(PORT)
-})
+app.listen(PORT);
+
